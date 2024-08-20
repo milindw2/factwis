@@ -30,11 +30,7 @@ export const AccordionItem = ({ user, deleteUser, onChange, expanded, setExpande
             setExpanded(false)
         }
     }
-    useEffect(() => {
-        if (editMode) {
-            setExpanded(true)
-        }
-    }, [editMode])
+    
     return (
         <div>
             <Accordion sx={{ backgroundColor: "#F2F3F3", border: "solid #b3b5b4 1px", margin: 2, }} expanded={expanded} onChange={onChange} onClick={handleClick}>
@@ -68,7 +64,7 @@ const UserDetails = ({ editMode, setEditMode, user, userName, setUserName, saveB
         const curruntMonth = new Date().getMonth();
         const [year, month, day] = birthDate.split("-").map((x) => Number(x));
 
-        console.log(year, month, day, curruntYear)
+        // console.log(year, month, day, curruntYear)
 
         return curruntYear - year
     }
@@ -102,11 +98,6 @@ const UserDetails = ({ editMode, setEditMode, user, userName, setUserName, saveB
             let ageArr = e.target.age.value.split(" ")
             setAge(Number(ageArr[0]))
         }
-
-        //  if (e.target.username.value !== "") {
-        //     const [first, last] = e.target.username.value.split(" ");
-        //     setUserName({ first, last });
-        // }
         setContry(e.target.country.value)
         setDescription(e.target.description.value)
         setSelectedGender(e.target.gender.value)
